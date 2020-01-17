@@ -18,9 +18,9 @@
       }
     }, {
       "type": "Feature",
-      "properties": { "hidden": false, "style": "LINESTRING" },
+      "properties": { "hidden": true, "style": "LINESTRING" },
       "geometry": {
-        "type": "LineString",
+        "type": "Polygon",
         "coordinates": [
           [-122.48369693756104, 37.83381888486939],
           [-122.48348236083984, 37.83317489144141],
@@ -43,6 +43,17 @@
           [-122.49163627624512, 37.832564787218985],
           [-122.49223709106445, 37.83337825839438],
           [-122.49378204345702, 37.83368330777276]
+        ]
+      }
+    }, {
+      "type": "Feature",
+      "properties": { "hidden": false, "style": "POLYGON" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [[0, 0], [10, 0], [10, 10], [0, 10], [0, 0]],
+          [[2, 2], [8, 2], [8, 8], [2, 8], [2, 2]],
+          [[4, 4], [6, 4], [6, 6], [4, 6], [4, 4]]
         ]
       }
     }, {

@@ -1,22 +1,17 @@
 {
-  "LINESTRING": {
+  "POLYGON": {
     "fill": {
-      "color": "rgba(0, 0, 255, 0.2)"
+      "color": "rgba(0, 0, 255, 0.2)",
+      "pattern": {
+        "repeat": [20, 20],
+        "jitter": [0, 0],
+        "symbols": ["pattern/symbol-1.svg", "pattern/symbol-2.svg"]
+      }
     },
 
     "stroke": {
-      "color": "white",
-      "weight": 12,
-      "join": "round",
-      "pattern": {
-        "repeat": [120, 20],
-        "jitter": [0, 0],
-        "symbols": ["pattern/symbol-1.svg", "pattern/symbol-2.svg"]
-      },
-      "outline": {
-        "color": "orange",
-        "weight": 16
-      }
+      "color": "blue",
+      "join": "round"
     }
   }
 }
