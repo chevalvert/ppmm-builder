@@ -1,0 +1,33 @@
+{
+  "name": "ppmm-builder",
+  "version": "0.0.1",
+  "description": "cli tool to generate tilemap from geojson",
+  "author": "Arnaud Juracek",
+  "bin": "./bin/index.js",
+  "scripts": {
+    "lint": "eslint --ext .js ./lib --cache",
+    "test": "cross-env NODE_ENV=test node test/"
+  },
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "canvas": "^2.6.1",
+    "clone": "^2.1.2",
+    "geojson-bounds": "^1.0.2",
+    "geojson-project": "^1.0.1",
+    "missing-math": "^3.2.0",
+    "point-in-polygon": "^1.0.1",
+    "tmp": "^0.1.0"
+  },
+  "devDependencies": {
+    "cross-env": "^6.0.3",
+    "eslint": "^4.3.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "fs-extra": "^8.1.0",
+    "minimist": "^1.2.0"
+  }
+}
