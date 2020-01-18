@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "description": "cli tool to generate tilemap from geojson",
   "author": "Arnaud Juracek",
-  "bin": "./bin/index.js",
+  "bin": "bin/index.js",
+  "source": "lib/index.js",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "scripts": {
     "lint": "eslint --ext .js ./lib --cache",
     "test": "cross-env NODE_ENV=test node test/"
