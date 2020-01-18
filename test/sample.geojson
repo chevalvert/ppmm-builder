@@ -4,21 +4,21 @@
   "features": [
     {
       "type": "Feature",
-      "properties": { "hidden": true, "style": "POINT" },
+      "properties": { "hidden": false, "style": "POINT" },
       "geometry": {
         "type": "Point",
         "coordinates": [0, 0]
       }
     }, {
       "type": "Feature",
-      "properties": { "hidden": true, "style": "LINESTRING" },
+      "properties": { "hidden": false, "style": "LINESTRING" },
       "geometry": {
         "type": "LineString",
         "coordinates": [[4e6, -2e6], [8e6, 2e6]]
       }
     }, {
       "type": "Feature",
-      "properties": { "hidden": true, "style": "LINESTRING" },
+      "properties": { "hidden": false, "style": "LINESTRING" },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -58,14 +58,14 @@
       }
     }, {
       "type": "Feature",
-      "properties": { "hidden": true, "style": "POLYGON" },
+      "properties": { "hidden": false, "style": "POLYGON" },
       "geometry": {
         "type": "Polygon",
         "coordinates": [[[-5e6, -1e6], [-4e6, 1e6], [-3e6, -1e6]]]
       }
     }, {
       "type": "Feature",
-      "properties": { "hidden": true, "style": "MULTILINESTRING" },
+      "properties": { "hidden": false, "style": "MULTILINESTRING" },
       "geometry": {
         "type": "MultiLineString",
         "coordinates": [
@@ -75,7 +75,7 @@
       }
     }, {
       "type": "Feature",
-      "properties": { "hidden": true, "style": "MULTIPOLYGON" },
+      "properties": { "hidden": false, "style": "MULTIPOLYGON" },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [

@@ -1,4 +1,31 @@
 {
+  "LINESTRING": {
+    "stroke": {
+      "color": "black"
+    }
+  },
+
+  "MULTILINESTRING": {
+    "stroke": {
+      "color": "black"
+    }
+  },
+
+  "MULTIPOLYGON": {
+    "fill": {
+      "color": "rgba(0, 0, 255, 0.2)"
+    },
+    "stroke": {
+      "color": "blue"
+    }
+  },
+
+  "POINT": {
+    "fill": {
+      "color": "black"
+    }
+  },
+
   "POLYGON": {
     "fill": {
       "color": "rgba(0, 0, 255, 0.2)",
@@ -11,7 +38,12 @@
 
     "stroke": {
       "color": "blue",
-      "join": "round"
+      "join": "round",
+      "pattern": {
+        "repeat": [20, 20],
+        "jitter": [0, 0],
+        "symbols": ["pattern/symbol-2.svg", "pattern/symbol-2.svg"]
+      }
     }
   }
 }
