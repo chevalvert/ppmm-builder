@@ -3,17 +3,26 @@ const path = require('path')
 const pkg = require('../package.json')
 const build = require('../lib')
 
-console.time(pkg.name)
-
-const geojson = fs.readJsonSync(path.join(__dirname, 'sample.geojson'), 'utf8')
-const stylesheet = fs.readJsonSync(path.join(__dirname, 'style.json'), 'utf8')
-
-build(geojson, stylesheet, {
+const options = {
+  output: path.join(__dirname, 'output'),
   root: path.join(__dirname),
-  size: 512,
+  tileSize: 256,
+  zoom: 0,
   padding: 20,
-  output: path.join(__dirname, 'output.png'),
   backgroundColor: 'white'
-})
+}
 
-console.timeEnd(pkg.name)
+;(async () => {
+  try {
+    console.time(pkg.name)
+
+    const geojson = await fs.readJson(path.join(__dirname, 'sample.geojson'), 'utf8')
+    const stylesheet = await fs.readJson(path.join(__dirname, 'style.json'), 'utf8')
+
+    await build(geojson, stylesheet, options)
+    console.timeEnd(pkg.name)
+  } catch (error) {
+    console.error(error)
+    process.exit(1)
+  }
+})()

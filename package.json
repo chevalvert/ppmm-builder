@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "description": "cli tool to generate tilemap from geojson",
   "author": "Arnaud Juracek",
-  "bin": "./bin/index.js",
+  "bin": "bin/index.js",
+  "source": "lib/index.js",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "scripts": {
     "lint": "eslint --ext .js ./lib --cache",
     "test": "cross-env NODE_ENV=test node test/"
@@ -11,10 +14,12 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "@mapbox/geojson-rewind": "^0.4.0",
     "canvas": "^2.6.1",
     "clone": "^2.1.2",
     "geojson-bounds": "^1.0.2",
     "geojson-project": "^1.0.1",
+    "is-clockwise": "^2.0.2",
     "missing-math": "^3.2.0",
     "point-in-polygon": "^1.0.1",
     "tmp": "^0.1.0"
