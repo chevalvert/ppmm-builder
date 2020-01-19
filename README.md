@@ -90,7 +90,7 @@ See [`docs/style`](docs/style.md).
 const options = {
   verbose: false,
   tileSize: 256, // px
-  boundingBox = undefined, // Follows geographic standard of [xmin, ymax, xmax, ymin]
+  boundingBox = undefined, // follows geographic standard of [xmin, ymax, xmax, ymin]
   backgroundColor: 'transparent',
   padding: 0,
   precision: 0,
