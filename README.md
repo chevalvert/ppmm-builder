@@ -36,6 +36,8 @@ Options:
   --padding        Set the padding of the global map in pixels (default: 0)
   --precision      Set the float precision of canvas rendering (default: 0)
   --zoom           Set the zoom level of the tilemap (default: 0)
+  --bbox           Provide a custom bounding box for the geojson
+                   Follows the geographic standard 'WEST,SOUTH,EAST,NORTH'
   --quality        Set the quality of the canvas rendering
                    Possible values are:
                    - 'fast'
@@ -88,6 +90,7 @@ See [`docs/style`](docs/style.md).
 const options = {
   verbose: false,
   tileSize: 256, // px
+  boundingBox = undefined, // Follows geographic standard of [xmin, ymax, xmax, ymin]
   backgroundColor: 'transparent',
   padding: 0,
   precision: 0,

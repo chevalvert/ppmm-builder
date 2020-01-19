@@ -9,6 +9,7 @@ const argv = require('minimist')(process.argv.slice(2), {
   boolean: ['help', 'porcelain', 'verbose', 'version'],
   alias: { o: 'output', h: 'help', v: 'version' },
   string: [
+    'bbox',
     'background-color',
     'output',
     'padding',
@@ -48,12 +49,14 @@ const porcelain = argv.porcelain || !process.stdout.isTTY
 const options = {
   verbose: argv.verbose && !porcelain,
   tileSize: argv.tileSize && +argv['tile-size'],
+  boundingBox: (argv.bbox && argv.bbox.length)
+    ? argv.bbox.split(',').map(v => +v.trim())
+    : undefined,
   backgroundColor: argv['background-color'],
   padding: argv.padding && +argv.padding,
   precision: argv.precision && +argv.precision,
   zoom: argv.zoom && +argv.zoom,
   quality: argv.quality,
-
   root: path.dirname(input),
   output: argv.output || process.cwd()
 }
@@ -70,7 +73,7 @@ const options = {
 
     porcelain ? console.log(files.join('\n')) : console.timeEnd(pkg.name)
   } catch (error) {
-    console.error(error)
+    console.error(options.verbose ? error : error.message)
     process.exit(1)
   }
 })()
