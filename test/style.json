@@ -36,6 +36,10 @@
   "POINT": {
     "fill": {
       "color": "black"
+    },
+    "label": {
+      "__property": "style",
+      "color": "red"
     }
   },
 

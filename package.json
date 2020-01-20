@@ -22,6 +22,7 @@
     "is-clockwise": "^2.0.2",
     "missing-math": "^3.2.0",
     "point-in-polygon": "^1.0.1",
+    "polylabel": "^1.0.2",
     "simplify-path": "^1.1.0",
     "tmp": "^0.1.0"
   },

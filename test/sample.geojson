@@ -7,7 +7,7 @@
       "properties": { "hidden": false, "style": "POINT" },
       "geometry": {
         "type": "Point",
-        "coordinates": [0, 0]
+        "coordinates": [4e6, -2e6]
       }
     }, {
       "type": "Feature",
