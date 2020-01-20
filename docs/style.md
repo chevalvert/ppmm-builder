@@ -8,6 +8,7 @@
   …
   "__property": "FOO",
   "bar": {
+    "tolerance": "2",
     "fill": {
       "color": "rgba(0, 0, 0, 0.5)",
       "pattern": {
@@ -37,6 +38,10 @@
   …
 }
 ```
+
+### Simplifying geometries
+A `tolerance` property can be declared inside a style to simplify matching features geometries using [`simplify-path`](https://github.com/mattdesl/simplify-path). Its value is expressed in pixels.
+
 
 ## Applying style
 
