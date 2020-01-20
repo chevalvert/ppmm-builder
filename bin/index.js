@@ -48,7 +48,7 @@ if (!stylesheet) {
 const porcelain = argv.porcelain || !process.stdout.isTTY
 const options = {
   verbose: argv.verbose && !porcelain,
-  tileSize: argv.tileSize && +argv['tile-size'],
+  tileSize: argv['tile-size'] && +argv['tile-size'],
   boundingBox: (argv.bbox && argv.bbox.length)
     ? argv.bbox.split(',').map(v => +v.trim())
     : undefined,
