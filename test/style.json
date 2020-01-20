@@ -1,6 +1,12 @@
 {
   "__property": "style",
 
+  "__default": {
+    "stroke": {
+      "color": "black"
+    }
+  },
+
   "LINESTRING": {
     "stroke": {
       "color": "black"

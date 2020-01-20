@@ -55,3 +55,18 @@
   …
 ]
 ```
+
+## Default style
+You can define a default style for all features that do not match the `__property` selector.
+
+###### `style.json`
+
+```json
+{
+  "__default": {
+    "color": …,
+    "fill": …
+  },
+  …
+}
+```
