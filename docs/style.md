@@ -6,7 +6,8 @@
 ```json
 {
   …
-  "foo": {
+  "__property": "FOO",
+  "bar": {
     "fill": {
       "color": "rgba(0, 0, 0, 0.5)",
       "pattern": {
@@ -41,16 +42,16 @@
 
 ###### `map.geojson`
 ```geojson
-{
+[
   …
   {
     "type": …,
     "geometry": {…},
     "properties": {
       "hidden": false,
-      "style": "foo"
+      "FOO": "bar"
     }
   },
   …
-}
+]
 ```

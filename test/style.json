@@ -1,4 +1,6 @@
 {
+  "__property": "style",
+
   "LINESTRING": {
     "stroke": {
       "color": "black"
@@ -13,7 +15,12 @@
 
   "MULTIPOLYGON": {
     "fill": {
-      "color": "rgba(0, 0, 255, 0.2)"
+      "color": "rgba(0, 0, 255, 0.2)",
+      "pattern": {
+        "repeat": [20, 20],
+        "jitter": [0, 0],
+        "symbols": ["pattern/symbol-1.svg", "pattern/symbol-2.svg"]
+      }
     },
     "stroke": {
       "color": "blue"
