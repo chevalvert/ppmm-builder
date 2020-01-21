@@ -18,10 +18,12 @@ const options = {
   try {
     console.time(pkg.name)
 
-    const geojson = await fs.readJson(path.join(__dirname, 'sample.geojson'), 'utf8')
-    const stylesheet = await fs.readJson(path.join(__dirname, 'style.json'), 'utf8')
+    const { files, warnings } = await build(
+      fs.createReadStream(path.join(__dirname, 'sample.geojson')),
+      await fs.readJson(path.join(__dirname, 'style.json'), 'utf8'),
+      options
+    )
 
-    const { files, warnings } = await build(geojson, stylesheet, options)
     console.timeEnd(pkg.name)
 
     Object.entries(warnings).forEach(([flag, values]) => {

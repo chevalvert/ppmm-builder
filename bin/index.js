@@ -6,11 +6,12 @@ const pkg = require('../package.json')
 const build = require('../lib')
 
 const argv = require('minimist')(process.argv.slice(2), {
-  boolean: ['help', 'porcelain', 'verbose', 'version'],
-  alias: { o: 'output', h: 'help', v: 'version' },
+  boolean: ['help', 'porcelain', 'verbose', 'version', 'progress'],
+  alias: { i: 'input', o: 'output', h: 'help', v: 'version' },
   string: [
-    'bbox',
     'background-color',
+    'bbox',
+    'input',
     'output',
     'padding',
     'precision',
@@ -33,21 +34,25 @@ if (argv.version) {
   process.exit(0)
 }
 
-const input = argv._[0] && path.resolve(process.cwd(), argv._[0])
+const input = process.stdin.isTTY
+  ? fs.createReadStream(path.resolve(process.cwd(), argv.input))
+  : process.stdin
+
 if (!input) {
-  console.error(`No input given.\nTry 'ppmm-builder file.geojson'`)
+  console.error(`No input given.\nTry 'ppmm-builder --input file.geojson'`)
   process.exit(1)
 }
 
 const stylesheet = argv.stylesheet && path.resolve(process.cwd(), argv.stylesheet)
 if (!stylesheet) {
-  console.error(`No stylesheet given.\nTry 'ppmm-builder ${argv._[0]} --stylesheet style.json'`)
+  console.error(`No stylesheet given.\nTry 'ppmm-builder --stylesheet style.json'`)
   process.exit(1)
 }
 
 const porcelain = argv.porcelain || !process.stdout.isTTY
 const options = {
   verbose: argv.verbose && !porcelain,
+  progress: argv.progress && !porcelain,
   tileSize: argv['tile-size'] && +argv['tile-size'],
   boundingBox: (argv.bbox && argv.bbox.length)
     ? argv.bbox.split(',').map(v => +v.trim())
@@ -57,7 +62,7 @@ const options = {
   precision: argv.precision && +argv.precision,
   zoom: argv.zoom && +argv.zoom,
   quality: argv.quality,
-  root: path.dirname(input),
+  root: path.dirname(stylesheet),
   output: argv.output || process.cwd()
 }
 
@@ -66,7 +71,7 @@ const options = {
     !porcelain && console.time(pkg.name)
 
     const { files } = await build(
-      await fs.readJson(input, 'utf8'),
+      input,
       await fs.readJson(stylesheet, 'utf8'),
       options
     )

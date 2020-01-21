@@ -1,7 +1,9 @@
 Usage:
-  ppmm-builder file.geojson --stylesheet=<style.json>
-  ppmm-builder file.geojson --stylesheet=<style.json> --output=<dir>
-  ppmm-builder file.geojson --stylesheet=<style.json> --output=<dir> --zoom 3
+  cat file.geojson | ppmm-builder --stylesheet=<style.json>
+  cat *.geojson | ppmm-builder --stylesheet=<style.json>
+  ppmm-builder --input file.geojson --stylesheet=<style.json>
+  ppmm-builder --input file.geojson --stylesheet=<style.json> --output=<dir>
+  ppmm-builder --input file.geojson --stylesheet=<style.json> --output=<dir> --zoom 3
   ppmm-builder --help
   ppmm-builder --version
 
@@ -11,9 +13,14 @@ Required:
 Options:
   -h, --help       Show this screen
   -v, --version    Print the current version
-  --porcelain      Make sure the output is parsable
 
+  -i, --input      DEfine the geojson file used as input stream (default: stdin)
   -o, --output     Define the output directory (default: CWD)
+
+  --porcelain      Make sure the output is parsable
+  --verbose        Log additional informations (not compatible with --porcelain)
+  --progress       Log rendering progress (not compatible with --porcelain)
+
   --tile-size      Set the default size of a tile in pixels (default: 256)
   --background-color
                    Set the background color of each tile (default: transparent)
