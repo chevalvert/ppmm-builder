@@ -64,7 +64,7 @@ $ npm install --save chevalvert/ppmm-builder
 ```js
 const build = require('ppmm-builder')
 
-const geojson = {} // valid geojson object. Note that right-hand-rule will be ensured during build
+const geojson = {} // geojson stream. Note that right-hand-rule will be ensured during build
 const style = {}   // see docs/style
 const options = {} // see docs/options
 
@@ -96,8 +96,9 @@ See [`docs/style`](docs/style.md).
 ```js
 const options = {
   verbose: false,
+  progress: false,
   tileSize: 256, // px
-  boundingBox = undefined, // follows geographic standard of [xmin, ymax, xmax, ymin]
+  boundingBox: undefined, // follows geographic standard of [xmin, ymax, xmax, ymin]. If left undefined, will try to get a `bbox` property from in the geojson stream
   backgroundColor: 'transparent',
   padding: 0,
   precision: 0,
