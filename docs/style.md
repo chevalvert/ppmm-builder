@@ -93,3 +93,20 @@ You can define a default style for all features that do not match the `__propert
   …
 }
 ```
+
+## Select by `FeatureCollection` name
+When streaming multiple files (ie using `$ cat *.geojson | ppmm-builder`), it can be useful to apply style by selecting each `FeatureCollection`.
+
+If your `FeatureCollection` has a `name` property, each of its feature will inherit a `__assumed_parent` custom property which can be used as a style selector:
+
+###### `style.json`
+```json
+{
+  "__property": "__assumed_parent",
+  "FeatureCollection_1": {…},
+  "FeatureCollection_2": {…},
+  …
+}
+```
+<sup>**Tip:** rendering order is determined by files order in the input stream. This can be easily defined using `bash` auto-expansion: `$ cat {countries,road,names}.geojson | ppmm-builder`.
+</sup>
