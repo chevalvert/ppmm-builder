@@ -102,7 +102,8 @@ A `tolerance` property can be declared inside a style to simplify matching featu
 
 ## Rendering features label
 
-A `label` object can be declared inside a style to define label rendering. Use the `__property` key to define which `feature.properties` will be used as a value for the label.
+A `label` object can be declared inside a style to define label rendering.
+Like `selector`, the `value` key is evaled with the feature context so that you can use its properties as a label value.
 
 Note that custom font will need to be installed on your system as this module does not handle font file registration yet.
 
