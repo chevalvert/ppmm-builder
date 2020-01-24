@@ -47,12 +47,17 @@ Styles are defined as a top-level `JSON` array:
       }
     },
     "label": {
-      "__property": "NAME",
+      "value": "properties.name",
       "size": 20,
       "font": "friction mono alt",
       "align": "center",
       "color": "black",
-      "repeat": 10
+      "repeat": 10,
+      "offset": [0, 0],
+      "outline": {
+        "color": "white",
+        "weight": 2
+      }
     }
   },
   …
