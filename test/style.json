@@ -1,66 +1,10 @@
-{
-  "__property": "style",
-
-  "__default": {
-    "stroke": {
-      "color": "black"
-    }
-  },
-
-  "LINESTRING": {
-    "stroke": {
-      "color": "black"
-    }
-  },
-
-  "MULTILINESTRING": {
-    "stroke": {
-      "color": "black"
-    }
-  },
-
-  "MULTIPOLYGON": {
+[
+  {
     "fill": {
-      "color": "rgba(0, 0, 255, 0.2)",
-      "pattern": {
-        "repeat": [20, 20],
-        "jitter": [0, 0],
-        "symbols": ["pattern/symbol-1.svg", "pattern/symbol-2.svg"]
-      }
+      "color": "rgba(0, 0, 0, 0.333)"
     },
     "stroke": {
-      "color": "blue"
-    }
-  },
-
-  "POINT": {
-    "fill": {
       "color": "black"
-    },
-    "label": {
-      "__property": "style",
-      "color": "red"
-    }
-  },
-
-  "POLYGON": {
-    "fill": {
-      "color": "rgba(0, 0, 255, 0.2)",
-      "pattern": {
-        "repeat": [20, 20],
-        "jitter": [0, 0],
-        "symbols": ["pattern/symbol-1.svg", "pattern/symbol-2.svg"]
-      }
-    },
-
-    "stroke": {
-      "color": "blue",
-      "join": "round",
-      "pattern": {
-        "repeat": [20, 20],
-        "jitter": [0, 0],
-        "symbols": ["pattern/symbol-2.svg", "pattern/symbol-2.svg"]
-      }
     }
   }
-}
+]
