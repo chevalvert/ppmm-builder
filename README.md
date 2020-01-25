@@ -37,14 +37,24 @@ Options:
   --verbose        Log additional informations (not compatible with --porcelain)
   --progress       Log rendering progress (not compatible with --porcelain)
 
+  --zoom           Set the zoom level of the tilemap (default: 0)
   --tile-size      Set the default size of a tile in pixels (default: 256)
+
+  --bbox           Provide a custom bounding box for the geojson
   --background-color
                    Set the background color of each tile (default: transparent)
   --padding        Set the padding of the global map in pixels (default: 0)
   --precision      Set the float precision of canvas rendering (default: 0)
-  --zoom           Set the zoom level of the tilemap (default: 0)
-  --bbox           Provide a custom bounding box for the geojson
                    Follows the geographic standard 'WEST,SOUTH,EAST,NORTH'
+
+  --resolution     Set a custom resolution in PPI (default: 72)
+  --compression    Set the PNG ZLIB compression from 0 to 9 (default: 6)
+  --antialias      Set the anti-aliasing mode
+                   Possible values are:
+                   - 'default' (default)
+                   - 'none'
+                   - 'gray'
+                   - 'subpixel'
   --quality        Set the quality of the canvas rendering
                    Possible values are:
                    - 'fast'
@@ -95,18 +105,24 @@ See [`docs/style`](docs/style.md).
 
 ```js
 const options = {
-  verbose: false,
-  progress: false,
-  tileSize: 256, // px
-  boundingBox: undefined, // follows geographic standard of [xmin, ymax, xmax, ymin]. If left undefined, will try to get a `bbox` property from in the geojson stream
-  backgroundColor: 'transparent',
-  padding: 0,
-  precision: 0,
-  zoom: 0,
-  quality: 'best', // 'fast'|'good'|'best'|'nearest'|'bilinear'
-  root: process.cwd(), // resolve symbol paths against this root
-  output: process.cwd(),
-  filename: (x, y, zoom) => `${x}-${y}-${zoom}`
+  verbose = false,
+  progress = false,
+
+  zoom = 0,
+  tileSize = 256, // px
+
+  boundingBox = undefined, // follows geographic standard of [xmin, ymax, xmax, ymin]
+  backgroundColor = 'transparent',
+  padding = 0,
+  precision = 0,
+
+  resolution = 72, // ppi
+  compression = 6, // 0~9
+  quality = 'best', // 'fast'|'good'|'best'|'nearest'|'bilinear'
+  antialias = 'default', // 'default'|'none'|'gray'|'subpixel'
+
+  root = process.cwd(), // resolve symbol paths against this root
+  output = process.cwd()
 }
 ```
 
