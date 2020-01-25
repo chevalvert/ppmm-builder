@@ -17,6 +17,7 @@
     "@mapbox/geojson-rewind": "^0.4.0",
     "canvas": "^2.6.1",
     "clone": "^2.1.2",
+    "dot-prop": "^5.2.0",
     "geojson-bounds": "^1.0.2",
     "geojson-project": "^1.0.1",
     "is-clockwise": "^2.0.2",
