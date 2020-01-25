@@ -9,13 +9,16 @@ const argv = require('minimist')(process.argv.slice(2), {
   boolean: ['help', 'porcelain', 'verbose', 'version', 'progress'],
   alias: { i: 'input', o: 'output', h: 'help', v: 'version' },
   string: [
+    'antialias',
     'background-color',
     'bbox',
+    'compression',
     'input',
     'output',
     'padding',
     'precision',
     'quality',
+    'resolution',
     'stylesheet',
     'tile-size',
     'zoom'
@@ -53,15 +56,22 @@ const porcelain = argv.porcelain || !process.stdout.isTTY
 const options = {
   verbose: argv.verbose && !porcelain,
   progress: argv.progress && !porcelain,
+
+  zoom: argv.zoom && +argv.zoom,
   tileSize: argv['tile-size'] && +argv['tile-size'],
+
   boundingBox: (argv.bbox && argv.bbox.length)
     ? argv.bbox.split(',').map(v => +v.trim())
     : undefined,
   backgroundColor: argv['background-color'],
   padding: argv.padding && +argv.padding,
   precision: argv.precision && +argv.precision,
-  zoom: argv.zoom && +argv.zoom,
+
+  resolution: argv.resolution && +argv.resolution,
+  compression: argv.compression && +argv.compression,
   quality: argv.quality,
+  antialias: argv.antialias,
+
   root: path.dirname(stylesheet),
   output: argv.output || process.cwd()
 }
