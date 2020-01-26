@@ -43,7 +43,8 @@ Options:
   --bbox           Provide a custom bounding box for the geojson
   --background-color
                    Set the background color of each tile (default: transparent)
-  --padding        Set the padding of the global map in pixels (default: 0)
+  --padding        Set the padding of the global map in the same unit as the
+                   input system coordinates (default: 0)
   --precision      Set the float precision of canvas rendering (default: 0)
                    Follows the geographic standard 'WEST,SOUTH,EAST,NORTH'
 
@@ -62,7 +63,6 @@ Options:
                    - 'best' (default)
                    - 'nearest'
                    - 'bilinear'
-
 ```
 
 ### Programmatic
@@ -113,7 +113,7 @@ const options = {
 
   boundingBox = undefined, // follows geographic standard of [xmin, ymax, xmax, ymin]
   backgroundColor = 'transparent',
-  padding = 0,
+  padding = 0, // in the same unit as input system coordinates
   precision = 0,
 
   resolution = 72, // ppi
