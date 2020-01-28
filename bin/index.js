@@ -18,8 +18,9 @@ const argv = require('minimist')(process.argv.slice(2), {
     'padding',
     'precision',
     'quality',
+    'rasters',
     'resolution',
-    'stylesheet',
+    'styles',
     'tile-size',
     'zoom'
   ]
@@ -46,14 +47,14 @@ if (!input) {
   process.exit(1)
 }
 
-const stylesheet = argv.stylesheet && path.resolve(process.cwd(), argv.stylesheet)
-if (!stylesheet) {
-  console.error(`No stylesheet given.\nTry 'ppmm-builder --stylesheet style.json'`)
-  process.exit(1)
-}
-
 const porcelain = argv.porcelain || !process.stdout.isTTY
 const options = {
+  stylesArray: argv.styles && fs.readJsonSync(argv.styles, 'utf8'),
+  stylesRoot: argv.styles && path.dirname(argv.styles),
+
+  rastersArray: argv.rasters && fs.readJsonSync(argv.rasters, 'utf8'),
+  rastersRoot: argv.rasters && path.dirname(argv.rasters),
+
   verbose: argv.verbose && !porcelain,
   progress: argv.progress && !porcelain,
 
@@ -72,20 +73,13 @@ const options = {
   quality: argv.quality,
   antialias: argv.antialias,
 
-  root: path.dirname(stylesheet),
   output: argv.output || process.cwd()
 }
 
 ;(async () => {
   try {
     !porcelain && console.time(pkg.name)
-
-    const { files } = await build(
-      input,
-      await fs.readJson(stylesheet, 'utf8'),
-      options
-    )
-
+    const { files } = await build(input, options)
     porcelain ? console.log(files.join('\n')) : console.timeEnd(pkg.name)
   } catch (error) {
     console.error(options.verbose ? error : error.message)
