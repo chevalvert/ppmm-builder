@@ -10,10 +10,12 @@ Rasters are defined as a top-level `JSON` array:
 [
   {
     "src": "raster.tiff",
+    "opacity": 0.3,
     "before": "previous.parent && parent !== previous.parent && parent === 'name'"
   },
   {
     "src": "raster.tiff",
+    "opacity": 1,
     "before": "zoom > 1 && properties.foo === 'bar'"
   },
   …
