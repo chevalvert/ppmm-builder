@@ -8,7 +8,7 @@ const build = require('../lib')
 
 const PATHS = {
   geojson: path.join(__dirname, 'sample.geojson'),
-  style: path.join(__dirname, 'style.json')
+  styles: path.join(__dirname, 'styles.json')
 }
 
 // NOTE: automatically computing the geojson bbox of the sample file to simplify
@@ -16,29 +16,24 @@ const PATHS = {
 // streams to avoid memory-intensive computation, but this is a test with a
 // small sample.
 const geojson = fs.readJsonSync(PATHS.geojson, 'utf8')
+const styles = fs.readJsonSync(PATHS.styles, 'utf8')
 const boundingBox = bounds.extent(geojson)
 
 const options = {
+  stylesArray: styles,
   boundingBox,
-  verbose: false,
+  verbose: true,
+  progress: true,
   output: tmp.dirSync({ prefix: pkg.name + '__', keep: true }).name,
-  root: path.join(__dirname),
-  tileSize: 256,
+  tileSize: 512,
   zoom: 0,
-  padding: 20,
   backgroundColor: 'white'
 }
 
 ;(async () => {
   try {
     console.time(pkg.name)
-
-    const { files, warnings } = await build(
-      fs.createReadStream(PATHS.geojson),
-      await fs.readJson(PATHS.style, 'utf8'),
-      options
-    )
-
+    const { files, warnings } = await build(fs.createReadStream(PATHS.geojson), options)
     console.timeEnd(pkg.name)
 
     Object.entries(warnings).forEach(([flag, values]) => {

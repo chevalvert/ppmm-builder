@@ -13,25 +13,30 @@ $ npm install --global chevalvert/ppmm-builder
 
 ```
 ppmm-builder
-
 Usage:
-  cat file.geojson | ppmm-builder --stylesheet=<style.json>
-  cat *.geojson | ppmm-builder --stylesheet=<style.json>
-  ppmm-builder --input file.geojson --stylesheet=<style.json>
-  ppmm-builder --input file.geojson --stylesheet=<style.json> --output=<dir>
-  ppmm-builder --input file.geojson --stylesheet=<style.json> --output=<dir> --zoom 3
+  cat *.geojson | ppmm-builder
+  cat file.geojson | ppmm-builder
+  cat file.geojson | ppmm-builder --styles=<style.json>
+  ppmm-builder --input file.geojson --styles=<style.json>
+  ppmm-builder --input file.geojson --styles=<style.json> --output=<dir>
+  ppmm-builder --input file.geojson --styles=<style.json> --output=<dir> --zoom 3
   ppmm-builder --help
   ppmm-builder --version
 
-Required:
-  --stylesheet=<style.json>
 
 Options:
   -h, --help       Show this screen
   -v, --version    Print the current version
 
-  -i, --input      DEfine the geojson file used as input stream (default: stdin)
+  -i, --input      Define the geojson file used as input stream (default: stdin)
   -o, --output     Define the output directory (default: CWD)
+
+  --styles=<styles.json>
+                   Set a custom styles list for feature rendering
+                   See https://github.com/chevalvert/ppmm-builder/#styles
+  --rasters=<rasters.json>
+                   Specifies a list of raster object to render
+                   See https://github.com/chevalvert/ppmm-builder/#rasters
 
   --porcelain      Make sure the output is parsable
   --verbose        Log additional informations (not compatible with --porcelain)
@@ -75,8 +80,7 @@ $ npm install --save chevalvert/ppmm-builder
 const build = require('ppmm-builder')
 
 const geojson = {} // geojson stream. Note that right-hand-rule will be ensured during build
-const style = {}   // see docs/style
-const options = {} // see docs/options
+const options = {} // see #options below
 
 // Using promises
 build(geojson, style, options).then(result => {
@@ -87,7 +91,7 @@ build(geojson, style, options).then(result => {
 // Using async/await
 ;(async () => {
   try {
-    const { files, warnings } = await build(geojson, style, options)
+    const { files, warnings } = await build(geojson, options)
     console.log(files)
     console.warn(warnings)
   } catch (error) {
@@ -98,13 +102,22 @@ build(geojson, style, options).then(result => {
 
 ## Documentation
 
-### Style
-See [`docs/style`](docs/style.md).
+### Styles
+See [`docs/styles`](docs/styles.md).
+
+### Rasters
+See [`docs/rasters`](docs/rasters.md).
 
 ### Options
 
 ```js
 const options = {
+  stylesArray = Styles.DEFAULT.raw, // See docs/styles
+  stylesRoot = process.cwd(),
+
+  rastersArray = [], // See docs/rasters
+  rastersRoot = process.cwd(),
+
   verbose = false,
   progress = false,
 
@@ -121,12 +134,9 @@ const options = {
   quality = 'best', // 'fast'|'good'|'best'|'nearest'|'bilinear'
   antialias = 'default', // 'default'|'none'|'gray'|'subpixel'
 
-  root = process.cwd(), // resolve symbol paths against this root
   output = process.cwd()
 }
 ```
-
-
 
 ## Development
 

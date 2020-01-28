@@ -1,4 +1,4 @@
-# docs/style
+# docs/styles
 
 * [Defining styles](#defining-styles)
 * [Using the `selector` property](#using-the-selector-property)

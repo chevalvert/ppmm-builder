@@ -1,0 +1,22 @@
+[
+  {
+    "fill": {
+      "color": "rgba(0, 0, 0, 0.1)"
+    },
+    "stroke": {
+      "color": "orange",
+      "weight": 2
+    },
+    "label": {
+      "color": "black",
+      "outline":  {
+        "color": "white",
+        "weight": 4
+      },
+      "value": "'commune'",
+      "size": 10,
+      "font": "Friction Mono Alt",
+      "offset": [0, 0]
+    }
+  }
+]
