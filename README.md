@@ -13,6 +13,7 @@ $ npm install --global chevalvert/ppmm-builder
 
 ```
 ppmm-builder
+
 Usage:
   cat *.geojson | ppmm-builder
   cat file.geojson | ppmm-builder
@@ -30,6 +31,8 @@ Options:
 
   -i, --input      Define the geojson file used as input stream (default: stdin)
   -o, --output     Define the output directory (default: CWD)
+  --skip-empty     Instruct the renderer to not render an image if the
+                   associated tile is empty
 
   --styles=<styles.json>
                    Set a custom styles list for feature rendering

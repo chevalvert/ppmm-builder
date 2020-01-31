@@ -6,7 +6,7 @@ const pkg = require('../package.json')
 const build = require('../lib')
 
 const argv = require('minimist')(process.argv.slice(2), {
-  boolean: ['help', 'porcelain', 'verbose', 'version', 'progress'],
+  boolean: ['help', 'porcelain', 'verbose', 'version', 'progress', 'skip-empty'],
   alias: { i: 'input', o: 'output', h: 'help', v: 'version' },
   string: [
     'antialias',
@@ -73,6 +73,7 @@ const options = {
   quality: argv.quality,
   antialias: argv.antialias,
 
+  skipEmpty: argv['skip-empty'],
   output: argv.output || process.cwd()
 }
 
