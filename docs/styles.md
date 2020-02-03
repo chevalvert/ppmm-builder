@@ -34,6 +34,7 @@ Styles are defined as a top-level `JSON` array:
       "weight": 5,
       "join": "round",
       "cap": "square",
+      "dash": [10, 5],
       "pattern": {
         "symbols": ["symbol-1.svg"],
         "repeat": [20, null],

@@ -5,6 +5,7 @@
     },
     "stroke": {
       "color": "orange",
+      "dash": [10, 5],
       "weight": 2
     },
     "label": {
