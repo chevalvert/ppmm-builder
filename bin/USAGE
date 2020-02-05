@@ -31,6 +31,8 @@ Options:
 
   --zoom           Set the zoom level of the tilemap (default: 0)
   --tile-size      Set the default size of a tile in pixels (default: 256)
+  --region         Define the rectangle [x1, y1, x2, y2] of tiles to render
+                   (default: whole map)
 
   --bbox           Provide a custom bounding box for the geojson
   --background-color

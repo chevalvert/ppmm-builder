@@ -47,6 +47,8 @@ Options:
 
   --zoom           Set the zoom level of the tilemap (default: 0)
   --tile-size      Set the default size of a tile in pixels (default: 256)
+  --region         Define the rectangle [x1, y1, x2, y2] of tiles to render
+                   (default: whole map)
 
   --bbox           Provide a custom bounding box for the geojson
   --background-color
@@ -126,6 +128,7 @@ const options = {
 
   zoom = 0,
   tileSize = 256, // px
+  region = [0, 0, (2 ** zoom) - 1, (2 ** zoom) - 1], // [X1, Y1, X2, Y2], specifies the region of the tileset to render
 
   boundingBox = undefined, // follows geographic standard of [xmin, ymax, xmax, ymin]
   backgroundColor = 'transparent',
@@ -137,8 +140,9 @@ const options = {
   quality = 'best', // 'fast'|'good'|'best'|'nearest'|'bilinear'
   antialias = 'default', // 'default'|'none'|'gray'|'subpixel'
 
-  output = process.cwd()
-}
+  skipEmpty = false,
+  output = process.cwd(),
+  filename = (x, y, zoom) => `${x}-${y}-${zoom}`}
 ```
 
 ## Development

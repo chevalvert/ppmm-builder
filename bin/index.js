@@ -19,6 +19,7 @@ const argv = require('minimist')(process.argv.slice(2), {
     'precision',
     'quality',
     'rasters',
+    'region',
     'resolution',
     'styles',
     'tile-size',
@@ -60,6 +61,7 @@ const options = {
 
   zoom: argv.zoom && +argv.zoom,
   tileSize: argv['tile-size'] && +argv['tile-size'],
+  region: argv['region'] && argv['region'].split(',').map(v => +v.trim()),
 
   boundingBox: (argv.bbox && argv.bbox.length)
     ? argv.bbox.split(',').map(v => +v.trim())
