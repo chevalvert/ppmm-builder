@@ -59,7 +59,7 @@ const options = {
   verbose: argv.verbose && !porcelain,
   progress: argv.progress && !porcelain,
 
-  zoom: argv.zoom && +argv.zoom,
+  zoomLevels: argv.zoom && argv.zoom.split(/,|\s/).map(v => +v.trim()),
   tileSize: argv['tile-size'] && +argv['tile-size'],
   region: argv['region'] && argv['region'].split(',').map(v => +v.trim()),
 
