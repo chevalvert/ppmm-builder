@@ -24,7 +24,6 @@ Usage:
   ppmm-builder --help
   ppmm-builder --version
 
-
 Options:
   -h, --help       Show this screen
   -v, --version    Print the current version
@@ -45,7 +44,9 @@ Options:
   --verbose        Log additional informations (not compatible with --porcelain)
   --progress       Log rendering progress (not compatible with --porcelain)
 
-  --zoom           Set the zoom level of the tilemap (default: 0)
+  --zoom           Set the zoom level of the tilemap
+                   Can be expressed as a list of multiple zoom levels:
+                   '0,1,2,3,4' or '0 1 2 3 4' (default: 0)
   --tile-size      Set the default size of a tile in pixels (default: 256)
   --region         Define the rectangle [x1, y1, x2, y2] of tiles to render
                    (default: whole map)
@@ -126,9 +127,9 @@ const options = {
   verbose = false,
   progress = false,
 
-  zoom = 0,
+  zoomLevels = [0],
   tileSize = 256, // px
-  region = [0, 0, (2 ** zoom) - 1, (2 ** zoom) - 1], // [X1, Y1, X2, Y2], specifies the region of the tileset to render
+  region = undefined, // [X1, Y1, X2, Y2], specifies the region of the tileset to render
 
   boundingBox = undefined, // follows geographic standard of [xmin, ymax, xmax, ymin]
   backgroundColor = 'transparent',
@@ -142,7 +143,7 @@ const options = {
 
   skipEmpty = false,
   output = process.cwd(),
-  filename = (x, y, zoom) => `${x}-${y}-${zoom}`}
+  filename = (x, y, zoom) => `${zoom}/${x}-${y}`}
 ```
 
 ## Development

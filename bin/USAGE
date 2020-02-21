@@ -8,7 +8,6 @@ Usage:
   ppmm-builder --help
   ppmm-builder --version
 
-
 Options:
   -h, --help       Show this screen
   -v, --version    Print the current version
@@ -29,7 +28,9 @@ Options:
   --verbose        Log additional informations (not compatible with --porcelain)
   --progress       Log rendering progress (not compatible with --porcelain)
 
-  --zoom           Set the zoom level of the tilemap (default: 0)
+  --zoom           Set the zoom level of the tilemap
+                   Can be expressed as a list of multiple zoom levels:
+                   '0,1,2,3,4' or '0 1 2 3 4' (default: 0)
   --tile-size      Set the default size of a tile in pixels (default: 256)
   --region         Define the rectangle [x1, y1, x2, y2] of tiles to render
                    (default: whole map)
