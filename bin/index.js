@@ -82,7 +82,8 @@ const options = {
 ;(async () => {
   try {
     !porcelain && console.time(pkg.name)
-    const { files } = await build(input, options)
+    const { files, warnings } = await build(input, options)
+    options.verbose && console.error(warnings)
     porcelain ? console.log(files.join('\n')) : console.timeEnd(pkg.name)
   } catch (error) {
     console.error(options.verbose ? error : error.message)
