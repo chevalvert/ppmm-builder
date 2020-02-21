@@ -59,7 +59,7 @@ const options = {
   verbose: argv.verbose && !porcelain,
   progress: argv.progress && !porcelain,
 
-  zoom: argv.zoom && +argv.zoom,
+  zoomLevels: argv.zoom && argv.zoom.split(/,|\s/).map(v => +v.trim()),
   tileSize: argv['tile-size'] && +argv['tile-size'],
   region: argv['region'] && argv['region'].split(',').map(v => +v.trim()),
 
@@ -82,7 +82,8 @@ const options = {
 ;(async () => {
   try {
     !porcelain && console.time(pkg.name)
-    const { files } = await build(input, options)
+    const { files, warnings } = await build(input, options)
+    options.verbose && console.error(warnings)
     porcelain ? console.log(files.join('\n')) : console.timeEnd(pkg.name)
   } catch (error) {
     console.error(options.verbose ? error : error.message)

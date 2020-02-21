@@ -26,7 +26,7 @@ const options = {
   progress: true,
   output: tmp.dirSync({ prefix: pkg.name + '__', keep: true }).name,
   tileSize: 512,
-  zoom: 0,
+  zoomLevels: [0],
   backgroundColor: 'white'
 }
 
