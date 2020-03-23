@@ -26,7 +26,8 @@ Styles are defined as a top-level `JSON` array:
       "pattern": {
         "symbols": ["symbol-1.svg", "symbol-2.png"],
         "repeat": [20, 20],
-        "jitter":  [10, 10]
+        "jitter":  [10, 10],
+        "fill-holes": false
       }
     },
     "stroke": {
