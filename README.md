@@ -76,6 +76,15 @@ Options:
                    - 'bilinear'
 ```
 
+#### Important note about maps size
+**Due to internal limitations, maps larger than `32 000 × 32 000 px` cannot be rendered in one go**.
+
+If you encounter an error message, you can:
+
+- use the `--region` option to render a smaller chunk of the map
+- use the `--region` option to create sub-render processes (ie using bash scripting) to render the whole map in several passes
+- do nothing: from version `3.7.0`, `ppmm-builder` implements a [`BigRender`](lib/abstractions/BigRender.js) abstraction, which allows rendering bigger maps in multiple passes (chunking the map and rendering it region by region). **Note that this technique will always clamp the resolution to 72 dpi.**
+
 ### Programmatic
 
 ```console
