@@ -76,7 +76,9 @@ Options:
                    - 'bilinear'
 ```
 
-#### Important note about maps size
+#### Importante notes
+
+##### Large maps size
 **Due to internal limitations, maps larger than `32 000 × 32 000 px` cannot be rendered in one go**.
 
 If you encounter an error message, you can:
@@ -84,6 +86,11 @@ If you encounter an error message, you can:
 - use the `--region` option to render a smaller chunk of the map
 - use the `--region` option to create sub-render processes (ie using bash scripting) to render the whole map in several passes
 - do nothing: from version `3.7.0`, `ppmm-builder` implements a [`BigRender`](lib/abstractions/BigRender.js) abstraction, which allows rendering bigger maps in multiple passes (chunking the map and rendering it region by region). **Note that this technique will always clamp the resolution to 72 dpi.**
+
+##### Uses of `--skip-empty`
+Some map renderings will result in empty tiles (meaning transparent empty PNG files). You can skip the writing of these tiles using the `--skip-empty` flag, so that only non-empty tiles are rendered. This could be useful to optimize networking requests or file size.
+
+Note however that the `--skip-empty` flag will result in a far longer tile writing process, because `ppmm-builder` will have to check fo emptyness on all tiles before choosing to write them or not. **Therefore, to drastically improve rendering speed, the `--skip-empty` flag should not be used.**
 
 ### Programmatic
 
