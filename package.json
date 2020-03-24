@@ -1,6 +1,6 @@
 {
   "name": "ppmm-builder",
-  "version": "3.6.6",
+  "version": "3.7.0",
   "description": "cli tool to generate tilemap from geojson",
   "author": "Arnaud Juracek",
   "bin": "bin/index.js",
