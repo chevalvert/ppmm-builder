@@ -20,10 +20,12 @@
     "clone": "^2.1.2",
     "deep-freeze": "^0.0.1",
     "dot-prop": "^5.2.0",
+    "fs-extra": "^8.1.0",
     "geojson-bounds": "^1.0.2",
     "geojson-project": "^1.0.1",
     "geotiff": "^1.0.0-beta.6",
     "is-clockwise": "^2.0.2",
+    "minimist": "^1.2.2",
     "missing-math": "^3.2.0",
     "point-in-polygon": "^1.0.1",
     "polylabel": "^1.0.2",
@@ -40,8 +42,6 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "fs-extra": "^8.1.0",
-    "minimist": "^1.2.2"
+    "eslint-plugin-standard": "^3.0.1"
   }
 }
