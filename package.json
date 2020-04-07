@@ -25,7 +25,7 @@
     "geojson-project": "^1.0.1",
     "geotiff": "^1.0.0-beta.6",
     "is-clockwise": "^2.0.2",
-    "minimist": "^1.2.2",
+    "minimist": "^1.2.3",
     "missing-math": "^3.2.0",
     "point-in-polygon": "^1.0.1",
     "polylabel": "^1.0.2",
