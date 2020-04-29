@@ -28,6 +28,8 @@ Options:
   --verbose        Log additional informations (not compatible with --porcelain)
   --progress       Log rendering progress (not compatible with --porcelain)
 
+  --rewind         Enforce right-hand-rule for all the geojson features.
+
   --zoom           Set the zoom level of the tilemap
                    Can be expressed as a list of multiple zoom levels:
                    '0,1,2,3,4' or '0 1 2 3 4' (default: 0)

@@ -6,7 +6,7 @@ const pkg = require('../package.json')
 const build = require('../lib')
 
 const argv = require('minimist')(process.argv.slice(2), {
-  boolean: ['help', 'porcelain', 'verbose', 'version', 'progress', 'skip-empty'],
+  boolean: ['help', 'porcelain', 'verbose', 'version', 'progress', 'skip-empty', 'rewind'],
   alias: { i: 'input', o: 'output', h: 'help', v: 'version' },
   string: [
     'antialias',
@@ -58,6 +58,8 @@ const options = {
 
   verbose: argv.verbose && !porcelain,
   progress: argv.progress && !porcelain,
+
+  enforceRightHandRule: argv.rewind,
 
   zoomLevels: argv.zoom && argv.zoom.split(/,|\s/).map(v => +v.trim()),
   tileSize: argv['tile-size'] && +argv['tile-size'],
