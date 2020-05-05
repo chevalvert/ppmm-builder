@@ -23,12 +23,7 @@ Styles are defined as a top-level `JSON` array:
     "tolerance": "2",
     "fill": {
       "color": "rgba(0, 0, 0, 0.5)",
-      "pattern": {
-        "symbols": ["symbol-1.svg", "symbol-2.png"],
-        "repeat": [20, 20],
-        "jitter":  [10, 10],
-        "fill-holes": false
-      }
+      "pattern": "symbol.svg"
     },
     "stroke": {
       "color": "white",
@@ -36,11 +31,6 @@ Styles are defined as a top-level `JSON` array:
       "join": "round",
       "cap": "square",
       "dash": [10, 5],
-      "pattern": {
-        "symbols": ["symbol-1.svg"],
-        "repeat": [20, null],
-        "jitter": [0, 10]
-      },
       "outline": {
         "color": "black",
         "weight": 10,
