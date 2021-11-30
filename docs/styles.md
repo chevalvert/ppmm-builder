@@ -36,6 +36,11 @@ Styles are defined as a top-level `JSON` array:
         "weight": 10,
         "join": "mitter",
         "cap": "square"
+      },
+      "arrows": {
+        "size": 2.5,
+        "start": true,
+        "end": true
       }
     },
     "label": {
@@ -87,6 +92,9 @@ If your `FeatureCollection` has a `name` property, each of its features will inh
 <sup>**Tip:** rendering order is determined by files order in the input stream. This order can be easily defined using `bash` auto-expansion: `$ cat {countries,road,names}.geojson | ppmm-builder`.
 </sup>
 
+## Sizing arrows
+
+Arrow size is defined as a percent of stroke weight, defaulting to 2.5 (250%).
 
 ## Outlining strokes
 
